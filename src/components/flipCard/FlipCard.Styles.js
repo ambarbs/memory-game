@@ -2,10 +2,10 @@ import styled from 'styled-components/macro';
 
 export const FLipCardWrapper = styled.div`
   cursor: pointer;
-  height: 200px;
+  height: 150px;
   //perspective: 600;
   position: relative;
-  width: 200px;
+  width: 150px;
 `;
 
 export const FLipCardContainer = styled.div`
@@ -14,7 +14,7 @@ export const FLipCardContainer = styled.div`
   width: 100%;
   transform-style: preserve-3d;
   transition: all 1s ease-in-out;
-  transform: ${(props) => props.rotate && 'rotateY(180deg)'};
+  transform: ${(props) => props.flip && 'rotateY(180deg)'};
 `;
 
 export const FlipCardFront = styled.div`

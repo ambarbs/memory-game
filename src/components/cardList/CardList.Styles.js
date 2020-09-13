@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components/macro';
 
 export const ImageCardWrapper = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
 `;
 
 const GradientAnimation = keyframes`
@@ -17,8 +17,8 @@ background-position: 0% 50%;
 }
 `;
 export const CardBackSide = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 6px;
   display: flex;
   justify-content: center;
