@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { FlipCardBack, FLipCardContainer, FlipCardFront, FLipCardWrapper } from './FlipCard.Styles';
 
 const FlipCard = ({ frontSide, backSide }) => {
   const [flip, setIsFrontSide] = useState(false);
 
+  const flipCardWithTimeout = (time, flip) => {
+    setTimeout(() => {
+      setIsFrontSide(flip);
+    }, time);
+  };
+
+  useEffect(() => {
+    // Open card after 500ms
+    flipCardWithTimeout(500, true);
+    // Close card after 5sec
+    flipCardWithTimeout(3500, false);
+  }, []);
+
+  const onClick = () => {
+    setIsFrontSide(!flip);
+    // Close card after 5sec
+    flipCardWithTimeout(2000, false);
+  };
+
   return (
     <FLipCardWrapper>
-      <FLipCardContainer onClick={() => setIsFrontSide(!flip)} rotate={flip}>
+      <FLipCardContainer onClick={onClick} rotate={flip}>
         <FlipCardFront>{backSide}</FlipCardFront>
         <FlipCardBack>{frontSide}</FlipCardBack>
       </FLipCardContainer>

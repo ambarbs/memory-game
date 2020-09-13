@@ -1,17 +1,19 @@
 import React from 'react';
-import { Grid } from '../common/ImageCard.Styles';
+import { Grid } from '../common/Common.Styles';
 import FlipCard from '../flipCard/FlipCard';
-import { CardBackSide, ImageCardWrapper } from './CardList.Styles';
+import { CardBackSide } from './CardList.Styles';
+import { images } from './Images';
 
 const CardList = () => {
-  let cards = Array(10).fill(
+  let cards = images.map((image, index) => (
     <FlipCard
-      backSide={<CardBackSide>Back</CardBackSide>}
+      key={index}
+      backSide={<CardBackSide />}
       frontSide={
-        <ImageCardWrapper src={'https://s3-us-west-2.amazonaws.com/s.cdpn.io/29841/jimmy.jpg'} />
+        image
       }
     />
-  );
+  ));
 
   return <Grid>{cards}</Grid>;
 };
