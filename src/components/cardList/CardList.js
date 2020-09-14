@@ -6,11 +6,12 @@ import { useSelector } from 'react-redux';
 
 const CardList = () => {
   const gameMatrix = useSelector((state) => state.gameReducer.gameMatrix);
+  const gameKey = useSelector((state) => state.gameReducer.gameKey);
   const closeImageWithIndex = useSelector((state) => state.gameReducer.closeImageWithIndex);
 
   let cards = gameMatrix.map((item, index) => (
     <FlipCard
-      key={index}
+      key={`${gameKey}_${index}`}
       imageId={item.imageId}
       closeImageWithIndex={closeImageWithIndex}
       imageIndex={item.index}
@@ -19,7 +20,7 @@ const CardList = () => {
     />
   ));
 
-  return <Grid>{cards}</Grid>;
+  return <Grid key={gameKey}>{cards}</Grid>;
 };
 
 export default CardList;

@@ -10,6 +10,6 @@ export const images = [
   <ImageCardWrapper key="nature" src="http://lorempixel.com/200/200/nature/" />,
   <ImageCardWrapper key="nightlife" src="http://lorempixel.com/200/200/nightlife/" />,
   <ImageCardWrapper key="people" src="http://lorempixel.com/200/200/people/" />,
-  // <ImageCardWrapper key="random" src="http://lorempixel.com/200/200/transport/" />,
-  // <ImageCardWrapper key="city" src="http://lorempixel.com/200/200/city/" />,
+  <ImageCardWrapper key="random" src="http://lorempixel.com/200/200/transport/" />,
+  <ImageCardWrapper key="city" src="http://lorempixel.com/200/200/city/" />,
 ];

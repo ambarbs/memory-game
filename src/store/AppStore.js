@@ -5,24 +5,18 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { actionType } from './constants';
 import { getInitialLayout } from './utils';
 
-const gameReducer = (
-  state = {
-    gameMatrix: getInitialLayout(),
-    openedCards: [],
-    closeImageWithIndex: null,
-  },
-  action
-) => {
-  const { TOTAL, UPDATE_OPENED_CARDS, CLOSE_IMAGE_WITH_INDEX } = actionType;
+const INITIAL_STATE = {
+  gameMatrix: getInitialLayout(),
+  openedCards: [],
+  closeImageWithIndex: null,
+  gameOver: false,
+  gameKey: 1,
+};
+const gameReducer = (state = INITIAL_STATE, action) => {
+  const { UPDATE_OPENED_CARDS, CLOSE_IMAGE_WITH_INDEX, RESET_STATE, GAME_OVER } = actionType;
 
   switch (action.type) {
     default:
-      break;
-    case TOTAL:
-      state = {
-        ...state,
-        total: action.payload,
-      };
       break;
     case UPDATE_OPENED_CARDS:
       state = {
@@ -34,6 +28,20 @@ const gameReducer = (
       state = {
         ...state,
         closeImageWithIndex: action.payload,
+      };
+      break;
+    case GAME_OVER:
+      state = {
+        ...state,
+        gameOver: action.payload,
+      };
+      break;
+    case RESET_STATE:
+      debugger;
+      state = {
+        ...INITIAL_STATE,
+        gameKey: ++INITIAL_STATE.gameKey,
+        gameMatrix: getInitialLayout(),
       };
       break;
   }

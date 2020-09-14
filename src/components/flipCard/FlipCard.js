@@ -2,15 +2,10 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { FlipCardBack, FLipCardContainer, FlipCardFront, FLipCardWrapper } from './FlipCard.Styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeImage, setOpenedCards } from '../../store/thunks';
+import { closeImage, setGameOver, setOpenedCards } from '../../store/thunks';
+import { gameDimension } from '../../store/constants';
 
-const FlipCard = ({
-  frontSide,
-  backSide,
-  imageId,
-  closeImageWithIndex,
-  imageIndex,
-}) => {
+const FlipCard = ({ frontSide, backSide, imageId, closeImageWithIndex, imageIndex }) => {
   const [flip, setIsFrontSide] = useState(false);
   const openedCards = useSelector((state) => state.gameReducer.openedCards);
   const dispatch = useDispatch();
@@ -38,6 +33,10 @@ const FlipCard = ({
   const onClick = () => {
     setIsFrontSide(!flip);
 
+    if (openedCards.length >= gameDimension.row * gameDimension.col - 1) {
+      dispatch(setGameOver(true));
+      return;
+    }
     if (openedCards.length % 2 === 0) {
       openedCards.push({ imageId, imageIndex });
       dispatch(setOpenedCards(openedCards));

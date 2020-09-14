@@ -13,6 +13,11 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "prettier"],
+  settings: {
+    react: {
+      version: "detect"
+    }
+  },
   rules: {
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     "linebreak-style": 0,
