@@ -5,9 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeImage, setGameOver, setOpenedCards } from '../../store/thunks';
 import { gameDimension } from '../../store/constants';
 
-const FlipCard = ({ frontSide, backSide, imageId, closeImageWithIndex, imageIndex }) => {
+const FlipCard = ({ frontSide, backSide, imageId, imageIndex }) => {
   const [flip, setIsFrontSide] = useState(false);
   const openedCards = useSelector((state) => state.gameReducer.openedCards);
+  const closeImageWithIndex = useSelector((state) => state.gameReducer.closeImageWithIndex);
   const dispatch = useDispatch();
 
   const flipCardWithTimeout = (time, flip) => {
@@ -72,7 +73,6 @@ FlipCard.propTypes = {
   backSide: PropTypes.element,
   imageId: PropTypes.number,
   imageIndex: PropTypes.number,
-  closeImageWithIndex: PropTypes.number,
 };
 
 FlipCard.defaultProps = {
