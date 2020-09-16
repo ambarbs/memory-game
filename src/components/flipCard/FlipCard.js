@@ -4,11 +4,12 @@ import { FlipCardBack, FLipCardContainer, FlipCardFront, FLipCardWrapper } from 
 import { useDispatch, useSelector } from 'react-redux';
 import { closeImage, setGameOver, setOpenedCards } from '../../store/thunks';
 import { gameDimension } from '../../store/constants';
+import { getCLoseImageWithIndex, getOpenCards } from '../../store/selectors';
 
 const FlipCard = ({ frontSide, backSide, imageId, imageIndex }) => {
   const [flip, setIsFrontSide] = useState(false);
-  const openedCards = useSelector((state) => state.gameReducer.openedCards);
-  const closeImageWithIndex = useSelector((state) => state.gameReducer.closeImageWithIndex);
+  const openedCards = useSelector(getOpenCards);
+  const closeImageWithIndex = useSelector(getCLoseImageWithIndex);
   const dispatch = useDispatch();
 
   const flipCardWithTimeout = (time, flip) => {
@@ -45,7 +46,7 @@ const FlipCard = ({ frontSide, backSide, imageId, imageIndex }) => {
     }
     // If 2nd card opened & does not match the previous card then close the card
     if (openedCards.length % 2 === 1 && !openedCards.find((card) => card.imageId === imageId)) {
-      // Close card after 5sec
+      // Close card after 2sec
       flipCardWithTimeout(2000, false);
       // Remove previous image
       dispatch(closeImage(openedCards.pop().imageIndex));
@@ -58,10 +59,9 @@ const FlipCard = ({ frontSide, backSide, imageId, imageIndex }) => {
   return (
     <FLipCardWrapper>
       <FLipCardContainer onClick={onClick} flip={flip}>
-        <FlipCardFront>{backSide}</FlipCardFront>
-        <FlipCardBack>{frontSide}</FlipCardBack>
+        <FlipCardFront>{frontSide}</FlipCardFront>
+        <FlipCardBack>{backSide}</FlipCardBack>
       </FLipCardContainer>
-      {/*{flip ? frontSide : backSide}*/}
     </FLipCardWrapper>
   );
 };

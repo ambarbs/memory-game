@@ -17,7 +17,7 @@ export const FLipCardContainer = styled.div`
   transform: ${(props) => props.flip && 'rotateY(180deg)'};
 `;
 
-export const FlipCardFront = styled.div`
+export const FlipCardBack = styled.div`
   backface-visibility: hidden;
   //border: 2px solid dimgrey;
   border-radius: 6px;
@@ -27,7 +27,7 @@ export const FlipCardFront = styled.div`
   width: 100%;
 `;
 
-export const FlipCardBack = styled(FlipCardFront)`
+export const FlipCardFront = styled(FlipCardBack)`
   background: #eaeaed;
   color: #0087cc;
   line-height: 150px;

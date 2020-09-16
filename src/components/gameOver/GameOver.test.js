@@ -1,7 +1,6 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import Adapter from 'enzyme-adapter-react-16';
-import { shallow, configure } from 'enzyme';
+import { shallow, configure, mount } from 'enzyme';
 import GameOver from './GameOver';
 import Toast from '../toast/Toast';
 import { getGameOver } from '../../store/selectors';
@@ -48,14 +47,20 @@ describe('GameOver Component', () => {
       expect(button.exists()).toBe(false);
     });
 
-    it.skip('should render Button when gameOver is true ', () => {
-      const mockedDispatch = jest.fn();
-      useDispatch.mockReturnValue(mockedDispatch);
+    it('should call dispatch 2 times when resetGame is clicked ', () => {
+      getGameOver.mockReturnValue(true);
+      const gameOverWrapper = mount(<GameOver />);
+      const button = gameOverWrapper.find(Button);
+      button.simulate('click');
+      expect(mockDispatch).toHaveBeenCalledTimes(2);
+    });
+
+    it('should render Button correctly with children', () => {
+      const mockedText = 'Restart';
       getGameOver.mockReturnValue(true);
       const gameOverWrapper = shallow(<GameOver />);
       const button = gameOverWrapper.find(Button);
-      button.simulate('click');
-      expect(mockDispatch).toHaveBeenCalled();
+      expect(button.text()).toEqual(mockedText);
     });
   });
 });
