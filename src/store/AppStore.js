@@ -5,13 +5,14 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { actionType } from './constants';
 import { getInitialLayout } from './utils';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   gameMatrix: getInitialLayout(),
   openedCards: [],
   closeImageWithIndex: null,
   gameOver: false,
   gameKey: 1,
 };
+
 const gameReducer = (state = INITIAL_STATE, action) => {
   const { UPDATE_OPENED_CARDS, CLOSE_IMAGE_WITH_INDEX, RESET_STATE, GAME_OVER } = actionType;
 
