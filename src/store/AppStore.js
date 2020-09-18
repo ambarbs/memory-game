@@ -13,7 +13,7 @@ export const INITIAL_STATE = {
   gameKey: 1,
 };
 
-const gameReducer = (state = INITIAL_STATE, action) => {
+export const gameReducer = (state = INITIAL_STATE, action) => {
   const { UPDATE_OPENED_CARDS, CLOSE_IMAGE_WITH_INDEX, RESET_STATE, GAME_OVER } = actionType;
 
   switch (action.type) {
@@ -38,7 +38,6 @@ const gameReducer = (state = INITIAL_STATE, action) => {
       };
       break;
     case RESET_STATE:
-      debugger;
       state = {
         ...INITIAL_STATE,
         gameKey: ++INITIAL_STATE.gameKey,

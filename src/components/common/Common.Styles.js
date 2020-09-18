@@ -5,6 +5,10 @@ export const Grid = styled.div`
   grid-gap: 3rem;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
 `;
 
 export const Button = styled.div`
