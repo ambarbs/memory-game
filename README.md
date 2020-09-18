@@ -1,3 +1,32 @@
+## Developer Notes
+
+### Approach
+
+1. Used _create-react_app_ to bootstrap the project.
+
+2. Used _styled-components_ to design the css and handle responsiveness(using media queries) 
+as it gives a more dynamic approach in handling css
+
+3. The game is restricted to 5 pairs of cards at the moment in 2 X 5 and 5 X 2 Grid displays for desktop and mobile devices, respectively
+
+4. The opened card closes if it does not match the previously opened card
+
+5. The game ends when all card pairs are matched and all of them remain open
+
+6. When game is over it will show a toast displaying **You won**
+
+7. The game could be restarted by clicking on the **Restart** button
+
+### Improvements
+
+1. Different difficulty levels 
+
+2. Undo button to revert the last move
+
+3. Display time taken to win a game
+
+4. Show number games own with time and number of clicks taken
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
