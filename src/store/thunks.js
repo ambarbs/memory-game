@@ -23,3 +23,21 @@ export const setGameOver = (isGameOver) => {
     return dispatch({ type: actionType.GAME_OVER, payload: isGameOver });
   };
 };
+
+export const setGameDifficulty = (gameDifficulty) => {
+  return async (dispatch) => {
+    return dispatch({ type: actionType.SET_GAME_DIFFICULTY, payload: gameDifficulty });
+  };
+};
+
+export const setMatrixDimension = (matrixDimension) => {
+  return async (dispatch) => {
+    return dispatch({ type: actionType.SET_MATRIX_DIMENSION, payload: matrixDimension });
+  };
+};
+
+export const setGameMatrix = (gameMatrix) => {
+  return async (dispatch) => {
+    return dispatch({ type: actionType.SET_GAME_MATRIX, payload: gameMatrix });
+  };
+};

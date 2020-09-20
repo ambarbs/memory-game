@@ -3,11 +3,12 @@ import { Grid } from '../common/Common.Styles';
 import FlipCard from '../flipCard/FlipCard';
 import { CardBackSide } from './CardList.Styles';
 import { useSelector } from 'react-redux';
-import { getGameKey, getGameMatrix } from '../../store/selectors';
+import { getGameKey, getGameMatrix, getMatrixDimension } from '../../store/selectors';
 
 const CardList = () => {
   const gameMatrix = useSelector(getGameMatrix);
   const gameKey = useSelector(getGameKey);
+  const matrixDimension = useSelector(getMatrixDimension);
 
   let cards = gameMatrix
     ? gameMatrix.map((item, index) => (
@@ -21,7 +22,11 @@ const CardList = () => {
       ))
     : null;
 
-  return <Grid key={gameKey}>{cards}</Grid>;
+  return (
+    <Grid key={gameKey} row={matrixDimension.row} col={matrixDimension.col}>
+      {cards}
+    </Grid>
+  );
 };
 
 export default CardList;

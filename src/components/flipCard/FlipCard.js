@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { FlipCardBack, FLipCardContainer, FlipCardFront, FLipCardWrapper } from './FlipCard.Styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeImage, setGameOver, setOpenedCards } from '../../store/thunks';
-import { gameDimension } from '../../store/constants';
-import { getCLoseImageWithIndex, getOpenCards } from '../../store/selectors';
+import { getCLoseImageWithIndex, getMatrixDimension, getOpenCards } from '../../store/selectors';
 
 const FlipCard = ({ frontSide, backSide, imageId, imageIndex }) => {
   const [flip, setIsFrontSide] = useState(false);
   const openedCards = useSelector(getOpenCards);
   const closeImageWithIndex = useSelector(getCLoseImageWithIndex);
+  const matrixDimension = useSelector(getMatrixDimension);
   const dispatch = useDispatch();
 
   const flipCardWithTimeout = (time, flip) => {
@@ -35,7 +35,7 @@ const FlipCard = ({ frontSide, backSide, imageId, imageIndex }) => {
   const onClick = () => {
     setIsFrontSide(!flip);
 
-    if (openedCards.length >= gameDimension.row * gameDimension.col - 1) {
+    if (openedCards.length >= matrixDimension.row * matrixDimension.col - 1) {
       dispatch(setGameOver(true));
       return;
     }

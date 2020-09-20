@@ -3,8 +3,8 @@ import styled from 'styled-components/macro';
 export const Grid = styled.div`
   display: grid;
   grid-gap: 3rem;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: ${(props) => `repeat(${props.col}, 1fr)`};
+  grid-template-rows: ${(props) => `repeat(${props.row}, 1fr)`};
   @media only screen and (max-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);

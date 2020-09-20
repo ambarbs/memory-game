@@ -4,9 +4,9 @@ import { shallow, configure, mount } from 'enzyme';
 import Toast from '../toast/Toast';
 import { getGameOver } from '../../store/selectors';
 import { Button } from '../common/Common.Styles';
-import FlipCard from "./FlipCard";
-import {FlipCardBack, FLipCardContainer, FlipCardFront, FLipCardWrapper} from "./FlipCard.Styles";
-import {instanceOf} from "prop-types";
+import FlipCard from './FlipCard';
+import { FlipCardBack, FLipCardContainer, FlipCardFront, FLipCardWrapper } from './FlipCard.Styles';
+import { instanceOf } from 'prop-types';
 
 configure({ adapter: new Adapter() });
 
@@ -19,7 +19,6 @@ jest.mock('../../store/selectors');
 
 describe('FlipCard Component', () => {
   describe('FLipCardWrapper render', () => {
-
     it('should render FLipCardWrapper ', () => {
       const flipCard = shallow(<FlipCard />);
       const flipCardWrapper = flipCard.find(FLipCardWrapper);

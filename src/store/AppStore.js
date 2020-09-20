@@ -11,13 +11,29 @@ export const INITIAL_STATE = {
   closeImageWithIndex: null,
   gameOver: false,
   gameKey: 1,
+  gameDifficulty: 1,
+  matrixDimension: { row: 2, col: 5 },
 };
 
 export const gameReducer = (state = INITIAL_STATE, action) => {
-  const { UPDATE_OPENED_CARDS, CLOSE_IMAGE_WITH_INDEX, RESET_STATE, GAME_OVER } = actionType;
+  const {
+    SET_GAME_MATRIX,
+    UPDATE_OPENED_CARDS,
+    CLOSE_IMAGE_WITH_INDEX,
+    RESET_STATE,
+    GAME_OVER,
+    SET_GAME_DIFFICULTY,
+    SET_MATRIX_DIMENSION,
+  } = actionType;
 
   switch (action.type) {
     default:
+      break;
+    case SET_GAME_MATRIX:
+      state = {
+        ...state,
+        gameMatrix: action.payload,
+      };
       break;
     case UPDATE_OPENED_CARDS:
       state = {
@@ -35,6 +51,18 @@ export const gameReducer = (state = INITIAL_STATE, action) => {
       state = {
         ...state,
         gameOver: action.payload,
+      };
+      break;
+    case SET_GAME_DIFFICULTY:
+      state = {
+        ...state,
+        gameDifficulty: action.payload,
+      };
+      break;
+    case SET_MATRIX_DIMENSION:
+      state = {
+        ...state,
+        matrixDimension: action.payload,
       };
       break;
     case RESET_STATE:

@@ -1,5 +1,4 @@
 import { images } from '../components/cardList/Images';
-import { gameDimension } from './constants';
 
 /**
  *
@@ -21,7 +20,7 @@ export const getShuffledArray = (array = []) => {
  * @param col
  * @returns {*[]}
  */
-export const getInitialLayout = (row = gameDimension.row, col = gameDimension.col) => {
+export const getInitialLayout = (row = 2, col = 5) => {
   const imageArray = [];
   for (let i = 0, imageCounter = 0; i < row * col; i += 2, imageCounter++) {
     // push image pair
