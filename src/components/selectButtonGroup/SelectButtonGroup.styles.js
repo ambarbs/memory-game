@@ -5,7 +5,7 @@ export const SelectButtonWrapper = styled.div`
   background: ${(props) => (props.active ? '#007aff' : '#fff')};
   color: ${(props) => (props.active ? '#fff' : '#007aff')};
   border-radius: 6px;
-  border: 1px solid #007aff;
+  border: ${(props) => (props.active ? '1px solid #fff' : '1px solid #007aff')};
   height: 2rem;
   width: 2rem;
   font: 14px/36px 'Roboto', sans-serif !important;

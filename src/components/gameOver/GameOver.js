@@ -3,10 +3,11 @@ import Toast from '../toast/Toast';
 import { Button } from '../common/Common.Styles';
 import { resetGame, setOpenedCards } from '../../store/thunks';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGameOver } from '../../store/selectors';
+import { getGameOver, getMatrixDimension } from '../../store/selectors';
 
 const GameOver = () => {
   const gameOver = useSelector(getGameOver);
+  const matrixDimension = useSelector(getMatrixDimension);
   const dispatch = useDispatch();
   return (
     <>
@@ -17,6 +18,7 @@ const GameOver = () => {
             onClick={() => {
               dispatch(resetGame());
               dispatch(setOpenedCards([]));
+              dispatch(resetGame({ row: matrixDimension.row, col: matrixDimension.col }));
             }}
           >
             Restart

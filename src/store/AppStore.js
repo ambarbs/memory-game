@@ -69,7 +69,9 @@ export const gameReducer = (state = INITIAL_STATE, action) => {
       state = {
         ...INITIAL_STATE,
         gameKey: ++INITIAL_STATE.gameKey,
-        gameMatrix: getInitialLayout(),
+        gameMatrix: getInitialLayout(action.payload.row, action.payload.col),
+        matrixDimension: { row: action.payload.row, col: action.payload.col },
+        gameDifficulty: action.payload.gameDifficulty,
       };
       break;
   }

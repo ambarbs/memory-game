@@ -12,9 +12,9 @@ export const closeImage = (imageId) => {
   };
 };
 
-export const resetGame = () => {
+export const resetGame = ({ row, col, gameDifficulty }) => {
   return async (dispatch) => {
-    return dispatch({ type: actionType.RESET_STATE, payload: null });
+    return dispatch({ type: actionType.RESET_STATE, payload: { row, col, gameDifficulty } });
   };
 };
 

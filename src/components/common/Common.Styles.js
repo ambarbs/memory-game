@@ -28,9 +28,10 @@ export const Button = styled.div`
   color: white;
 `;
 
-export const FlexRow = styled.div`
+export const Flex = styled.div`
   display: flex;
+  flex-direction: ${(props) => props.direction || 'row'};
   justify-content: center;
   align-items: center;
-  width: 600px;
+  width: ${(props) => props.width};
 `;
