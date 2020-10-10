@@ -1,4 +1,4 @@
-import { images } from '../components/cardList/Images';
+import { getCardIcons } from '../components/cardList/CardIcons';
 
 /**
  *
@@ -18,14 +18,17 @@ export const getShuffledArray = (array = []) => {
  *
  * @param row
  * @param col
+ * @param iconStyle
  * @returns {*[]}
  */
-export const getInitialLayout = (row = 2, col = 5) => {
+export const getInitialLayout = (row = 2, col = 5, iconStyle = 0) => {
   const imageArray = [];
+  const icons = Object.values(getCardIcons(iconStyle));
   for (let i = 0, imageCounter = 0; i < row * col; i += 2, imageCounter++) {
+    const IconComponent = icons[imageCounter];
     // push image pair
-    imageArray.push({ imageId: imageCounter, image: images[imageCounter], index: i });
-    imageArray.push({ imageId: imageCounter, image: images[imageCounter], index: i + 1 });
+    imageArray.push({ imageId: imageCounter, image: IconComponent, index: i });
+    imageArray.push({ imageId: imageCounter, image: IconComponent, index: i + 1 });
   }
   return getShuffledArray(imageArray);
 };

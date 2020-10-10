@@ -1,22 +1,43 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { SelectButtonGroupWrapper, SelectButtonWrapper } from './SelectButtonGroup.styles';
+import {
+  SelectButtonGroupWrapper,
+  SelectButtonGroupWrapperGrid,
+  SelectButtonWrapper,
+} from './SelectButtonGroup.styles';
 
-const SelectButtonGroup = ({ labels, onSelect, selectedIndex, title }) => {
+const wrapperMap = {
+  grid: SelectButtonGroupWrapperGrid,
+  flex: SelectButtonGroupWrapper,
+};
+const SelectButtonGroup = ({
+  contents,
+  onSelect,
+  selectedIndex,
+  title,
+  wrapperType,
+  rows,
+  cols,
+  height,
+  width,
+}) => {
+  const WrapperComponent = wrapperMap[wrapperType];
   return (
     <>
       <h3>{title}</h3>
-      <SelectButtonGroupWrapper>
-        {labels.map((label, index) => (
+      <WrapperComponent rows={rows} cols={cols}>
+        {contents.map((label, index) => (
           <SelectButtonWrapper
             key={label}
             onClick={() => onSelect(index)}
             active={selectedIndex === index}
+            height={height}
+            width={width}
           >
             {label}
           </SelectButtonWrapper>
         ))}
-      </SelectButtonGroupWrapper>
+      </WrapperComponent>
     </>
   );
 };
@@ -24,8 +45,13 @@ const SelectButtonGroup = ({ labels, onSelect, selectedIndex, title }) => {
 export default SelectButtonGroup;
 
 SelectButtonGroup.propTypes = {
-  labels: PropTypes.arrayOf(PropTypes.string),
+  contents: PropTypes.array,
   onSelect: PropTypes.func,
   selectedIndex: PropTypes.number,
+  rows: PropTypes.number,
+  cols: PropTypes.number,
   title: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  wrapperType: PropTypes.string.isRequired,
 };

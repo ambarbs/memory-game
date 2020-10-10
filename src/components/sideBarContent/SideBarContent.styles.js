@@ -17,3 +17,12 @@ export const SideBarSliderLabelsWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const SidebarImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+`;

@@ -12,9 +12,12 @@ export const closeImage = (imageId) => {
   };
 };
 
-export const resetGame = ({ row, col, gameDifficulty }) => {
+export const resetGame = ({ row, col, gameDifficulty, iconStyle }) => {
   return async (dispatch) => {
-    return dispatch({ type: actionType.RESET_STATE, payload: { row, col, gameDifficulty } });
+    return dispatch({
+      type: actionType.RESET_STATE,
+      payload: { row, col, gameDifficulty, iconStyle },
+    });
   };
 };
 
@@ -27,6 +30,12 @@ export const setGameOver = (isGameOver) => {
 export const setGameDifficulty = (gameDifficulty) => {
   return async (dispatch) => {
     return dispatch({ type: actionType.SET_GAME_DIFFICULTY, payload: gameDifficulty });
+  };
+};
+
+export const setIconStyle = (iconStyle) => {
+  return async (dispatch) => {
+    return dispatch({ type: actionType.SET_ICON_STYLE, payload: iconStyle });
   };
 };
 

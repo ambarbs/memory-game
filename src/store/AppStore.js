@@ -12,6 +12,7 @@ export const INITIAL_STATE = {
   gameOver: false,
   gameKey: 1,
   gameDifficulty: 1,
+  iconStyle: 0,
   matrixDimension: { row: 2, col: 5 },
 };
 
@@ -23,6 +24,7 @@ export const gameReducer = (state = INITIAL_STATE, action) => {
     RESET_STATE,
     GAME_OVER,
     SET_GAME_DIFFICULTY,
+    SET_ICON_STYLE,
     SET_MATRIX_DIMENSION,
   } = actionType;
 
@@ -59,6 +61,12 @@ export const gameReducer = (state = INITIAL_STATE, action) => {
         gameDifficulty: action.payload,
       };
       break;
+    case SET_ICON_STYLE:
+      state = {
+        ...state,
+        iconStyle: action.payload,
+      };
+      break;
     case SET_MATRIX_DIMENSION:
       state = {
         ...state,
@@ -69,9 +77,14 @@ export const gameReducer = (state = INITIAL_STATE, action) => {
       state = {
         ...INITIAL_STATE,
         gameKey: ++INITIAL_STATE.gameKey,
-        gameMatrix: getInitialLayout(action.payload.row, action.payload.col),
+        gameMatrix: getInitialLayout(
+          action.payload.row,
+          action.payload.col,
+          action.payload.iconStyle || INITIAL_STATE.iconStyle
+        ),
         matrixDimension: { row: action.payload.row, col: action.payload.col },
         gameDifficulty: action.payload.gameDifficulty,
+        iconStyle: action.payload.iconStyle || INITIAL_STATE.iconStyle,
       };
       break;
   }

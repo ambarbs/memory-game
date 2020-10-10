@@ -6,8 +6,8 @@ export const SelectButtonWrapper = styled.div`
   color: ${(props) => (props.active ? '#fff' : '#007aff')};
   border-radius: 6px;
   border: ${(props) => (props.active ? '1px solid #fff' : '1px solid #007aff')};
-  height: 2rem;
-  width: 2rem;
+  height: ${(props) => props.height || '2rem'};
+  width: ${(props) => props.width || '2rem'};
   font: 14px/36px 'Roboto', sans-serif !important;
   padding: 0 12px;
   position: relative;
@@ -28,4 +28,12 @@ export const SelectButtonGroupWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 90%;
+  margin-bottom: 2rem;
+`;
+
+export const SelectButtonGroupWrapperGrid = styled.div`
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: ${(props) => `repeat(${props.cols}, 1fr)`};
+  grid-template-rows: ${(props) => `repeat(${props.rows}, 1fr)`};
 `;

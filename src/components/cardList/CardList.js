@@ -9,7 +9,6 @@ const CardList = () => {
   const gameMatrix = useSelector(getGameMatrix);
   const gameKey = useSelector(getGameKey);
   const matrixDimension = useSelector(getMatrixDimension);
-
   let cards = gameMatrix
     ? gameMatrix.map((item, index) => (
         <FlipCard
@@ -17,7 +16,7 @@ const CardList = () => {
           imageId={item.imageId}
           imageIndex={item.index}
           backSide={<CardBackSide />}
-          frontSide={item.image}
+          FrontSide={item.image}
         />
       ))
     : null;

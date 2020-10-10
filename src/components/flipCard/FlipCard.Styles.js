@@ -35,4 +35,8 @@ export const FlipCardFront = styled(FlipCardBack)`
   text-align: center;
   transform: rotateY(180deg);
   border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
 `;

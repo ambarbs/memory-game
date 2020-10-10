@@ -25,5 +25,5 @@ export const CardBackSide = styled.div`
   align-items: center;
   background: linear-gradient(-45deg, #ee2943, #e7da65, #23a6d5, #23d5ab);
   background-size: 400% 400%;
-  animation: ${GradientAnimation} 15s ease infinite;
+  animation: ${GradientAnimation} 5s ease infinite;
 `;
