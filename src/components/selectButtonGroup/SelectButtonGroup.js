@@ -4,6 +4,7 @@ import {
   SelectButtonGroupWrapper,
   SelectButtonGroupWrapperGrid,
   SelectButtonWrapper,
+  SideBarContentTitle,
 } from './SelectButtonGroup.styles';
 
 const wrapperMap = {
@@ -24,7 +25,7 @@ const SelectButtonGroup = ({
   const WrapperComponent = wrapperMap[wrapperType];
   return (
     <>
-      <h3>{title}</h3>
+      <SideBarContentTitle>{title}</SideBarContentTitle>
       <WrapperComponent rows={rows} cols={cols}>
         {contents.map((label, index) => (
           <SelectButtonWrapper

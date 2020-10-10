@@ -32,3 +32,29 @@ export const getInitialLayout = (row = 2, col = 5, iconStyle = 0) => {
   }
   return getShuffledArray(imageArray);
 };
+
+/**
+ *
+ * @param cardArray
+ * @param row
+ * @param col
+ * @param iconStyle
+ * @returns {*[]}
+ */
+export const replaceImagesInLayout = (cardArray, row = 2, col = 5, iconStyle = 0) => {
+  debugger;
+  // get unique imageIds
+  const imageIds = Array.from(new Set(cardArray.map((card) => card.imageId)));
+  const icons = Object.values(getCardIcons(iconStyle));
+
+  // filter out and change both items' images with new image
+  imageIds.forEach((imageId, imageCounter) => {
+    const IconComponent = icons[imageCounter];
+    const cardsWithImageId = cardArray.filter((card) => card.imageId === imageId);
+
+    // replace image for both cards with new image
+    cardsWithImageId.forEach((card) => (card.image = IconComponent));
+  });
+
+  return [...cardArray];
+};

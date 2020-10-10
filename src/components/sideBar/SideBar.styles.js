@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const SideBarWrapper = styled.div`
-  background-color: #565d84;
+  background-color: #29292e;
   height: 100%;
   width: ${(props) => (props.open ? '20%' : '1%')};
   position: absolute;

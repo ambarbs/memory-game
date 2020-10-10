@@ -37,3 +37,7 @@ export const SelectButtonGroupWrapperGrid = styled.div`
   grid-template-columns: ${(props) => `repeat(${props.cols}, 1fr)`};
   grid-template-rows: ${(props) => `repeat(${props.rows}, 1fr)`};
 `;
+
+export const SideBarContentTitle = styled.h3`
+  color: white;
+`;
