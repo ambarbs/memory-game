@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeImage, setGameOver, setOpenedCards } from '../../store/thunks';
 import { getCLoseImageWithIndex, getMatrixDimension, getOpenCards } from '../../store/selectors';
 
-const FlipCard = ({ FrontSide, backSide, imageId, imageIndex }) => {
+const FlipCard = ({ frontSide, backSide, imageId, imageIndex }) => {
   const [flip, setIsFrontSide] = useState(false);
   const openedCards = useSelector(getOpenCards);
   const closeImageWithIndex = useSelector(getCLoseImageWithIndex);
@@ -21,8 +21,8 @@ const FlipCard = ({ FrontSide, backSide, imageId, imageIndex }) => {
   useEffect(() => {
     // Open card after 500ms
     flipCardWithTimeout(500, true);
-    // Close card after 5sec
-    flipCardWithTimeout(1500, false);
+    // Close card after 2.5sec
+    flipCardWithTimeout(2500, false);
   }, []);
 
   useEffect(() => {
@@ -35,6 +35,7 @@ const FlipCard = ({ FrontSide, backSide, imageId, imageIndex }) => {
   const onClick = () => {
     setIsFrontSide(!flip);
 
+    // if all cards are opened then it is game over
     if (openedCards.length >= matrixDimension.row * matrixDimension.col - 1) {
       dispatch(setGameOver(true));
       return;
@@ -58,9 +59,7 @@ const FlipCard = ({ FrontSide, backSide, imageId, imageIndex }) => {
   return (
     <FLipCardWrapper>
       <FLipCardContainer onClick={onClick} flip={flip}>
-        <FlipCardFront>
-          <FrontSide />
-        </FlipCardFront>
+        <FlipCardFront>{frontSide}</FlipCardFront>
         <FlipCardBack>{backSide}</FlipCardBack>
       </FLipCardContainer>
     </FLipCardWrapper>
@@ -70,7 +69,7 @@ const FlipCard = ({ FrontSide, backSide, imageId, imageIndex }) => {
 export default FlipCard;
 
 FlipCard.propTypes = {
-  FrontSide: PropTypes.element,
+  frontSide: PropTypes.element,
   backSide: PropTypes.element,
   imageId: PropTypes.number,
   imageIndex: PropTypes.number,

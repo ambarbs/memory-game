@@ -1,11 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { DiAndroid } from 'react-icons/di';
-import { Fa500Px } from 'react-icons/fa';
-import { VscAccount } from 'react-icons/vsc';
-import { WiDayShowers } from 'react-icons/wi';
-import { GiSkullSabertooth } from 'react-icons/gi';
-import { SiAmazon } from 'react-icons/si';
+import dcLogo from '../../images/dc/dc.jpg';
+import avengersLogo from '../../images/avengers/avengers.jpg';
 import {
   resetGame,
   setGameDifficulty,
@@ -13,10 +9,11 @@ import {
   setIconStyle,
   setMatrixDimension,
 } from '../../store/thunks';
-import { SideBarContentWrapper, SidebarImageWrapper } from './SideBarContent.styles';
+import { SideBarContentWrapper } from './SideBarContent.styles';
 import { getInitialLayout, replaceImagesInLayout } from '../../store/utils';
 import SelectButtonGroup from '../selectButtonGroup/SelectButtonGroup';
 import { getGameDifficulty, getGameMatrix, getIconStyle } from '../../store/selectors';
+import { ImageCardWrapper } from '../cardList/CardList.Styles';
 
 const getMatrixDimension = (gameDifficulty) => {
   switch (gameDifficulty) {
@@ -56,17 +53,9 @@ const SideBarContent = () => {
   };
 
   const imageButtons = [
-    SiAmazon,
-    Fa500Px,
-    VscAccount,
-    WiDayShowers,
-    GiSkullSabertooth,
-    DiAndroid,
-  ].map((ImageComponent, index) => (
-    <SidebarImageWrapper key={index}>
-      <ImageComponent />
-    </SidebarImageWrapper>
-  ));
+    <ImageCardWrapper key={'dcLogo'} src={dcLogo} />,
+    <ImageCardWrapper key={'avengersLogo'} src={avengersLogo} />,
+  ].map((image) => <>{image}</>);
   return (
     <SideBarContentWrapper>
       <SelectButtonGroup
@@ -75,6 +64,7 @@ const SideBarContent = () => {
         contents={['Easy', 'Medium', 'Hard']}
         onSelect={onSelect}
         selectedIndex={gameDifficulty}
+        type="text"
       />
       <SelectButtonGroup
         title="Style"
@@ -86,6 +76,7 @@ const SideBarContent = () => {
         contents={imageButtons}
         onSelect={onStyleSelect}
         selectedIndex={iconStyle}
+        type="icon"
       />
     </SideBarContentWrapper>
   );

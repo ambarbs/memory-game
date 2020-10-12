@@ -85,6 +85,7 @@ export const gameReducer = (state = INITIAL_STATE, action) => {
         matrixDimension: { row: action.payload.row, col: action.payload.col },
         gameDifficulty: action.payload.gameDifficulty,
         iconStyle: action.payload.iconStyle || INITIAL_STATE.iconStyle,
+        openedCards: [],
       };
       break;
   }

@@ -23,6 +23,24 @@ export const SelectButtonWrapper = styled.div`
   }
 `;
 
+export const SelectButtonWrapperForImage = styled.div`
+  transition: 0.4s;
+  border-radius: 6px;
+  border: ${(props) => (props.active ? '1px solid #fff' : '1px solid #007aff')};
+  height: 3.5rem;
+  width: 6rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    transition: 0.4s;
+    background: ${(props) => (props.active ? '#007aff' : '#fff')};
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.56);
+    border: 1px solid #007aff;
+  }
+`;
+
 export const SelectButtonGroupWrapper = styled.div`
   display: flex;
   justify-content: space-between;

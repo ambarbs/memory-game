@@ -4,10 +4,15 @@ import {
   SelectButtonGroupWrapper,
   SelectButtonGroupWrapperGrid,
   SelectButtonWrapper,
+  SelectButtonWrapperForImage,
   SideBarContentTitle,
 } from './SelectButtonGroup.styles';
 
-const wrapperMap = {
+const wrapperMapSelectButton = {
+  text: SelectButtonWrapper,
+  icon: SelectButtonWrapperForImage,
+};
+const wrapperMapSelectButtonGroup = {
   grid: SelectButtonGroupWrapperGrid,
   flex: SelectButtonGroupWrapper,
 };
@@ -21,14 +26,16 @@ const SelectButtonGroup = ({
   cols,
   height,
   width,
+  type,
 }) => {
-  const WrapperComponent = wrapperMap[wrapperType];
+  const WrapperComponentButtonGroup = wrapperMapSelectButtonGroup[wrapperType];
+  const WrapperComponentSelectButton = wrapperMapSelectButton[type];
   return (
     <>
       <SideBarContentTitle>{title}</SideBarContentTitle>
-      <WrapperComponent rows={rows} cols={cols}>
+      <WrapperComponentButtonGroup rows={rows} cols={cols}>
         {contents.map((label, index) => (
-          <SelectButtonWrapper
+          <WrapperComponentSelectButton
             key={label}
             onClick={() => onSelect(index)}
             active={selectedIndex === index}
@@ -36,9 +43,9 @@ const SelectButtonGroup = ({
             width={width}
           >
             {label}
-          </SelectButtonWrapper>
+          </WrapperComponentSelectButton>
         ))}
-      </WrapperComponent>
+      </WrapperComponentButtonGroup>
     </>
   );
 };
@@ -55,4 +62,5 @@ SelectButtonGroup.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   wrapperType: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };

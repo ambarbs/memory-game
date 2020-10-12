@@ -1,4 +1,4 @@
-import { getCardIcons } from '../components/cardList/CardIcons';
+import { images } from '../components/cardList/Images';
 
 /**
  *
@@ -23,12 +23,12 @@ export const getShuffledArray = (array = []) => {
  */
 export const getInitialLayout = (row = 2, col = 5, iconStyle = 0) => {
   const imageArray = [];
-  const icons = Object.values(getCardIcons(iconStyle));
+  // shuffle before creating the game else it will create the game with same icons
+  const icons = getShuffledArray(images[iconStyle]);
   for (let i = 0, imageCounter = 0; i < row * col; i += 2, imageCounter++) {
-    const IconComponent = icons[imageCounter];
     // push image pair
-    imageArray.push({ imageId: imageCounter, image: IconComponent, index: i });
-    imageArray.push({ imageId: imageCounter, image: IconComponent, index: i + 1 });
+    imageArray.push({ imageId: imageCounter, image: icons[imageCounter], index: i });
+    imageArray.push({ imageId: imageCounter, image: icons[imageCounter], index: i + 1 });
   }
   return getShuffledArray(imageArray);
 };
@@ -42,18 +42,17 @@ export const getInitialLayout = (row = 2, col = 5, iconStyle = 0) => {
  * @returns {*[]}
  */
 export const replaceImagesInLayout = (cardArray, row = 2, col = 5, iconStyle = 0) => {
-  debugger;
   // get unique imageIds
   const imageIds = Array.from(new Set(cardArray.map((card) => card.imageId)));
-  const icons = Object.values(getCardIcons(iconStyle));
+  const icons = images[iconStyle];
 
   // filter out and change both items' images with new image
   imageIds.forEach((imageId, imageCounter) => {
-    const IconComponent = icons[imageCounter];
+    const image = icons[imageCounter];
     const cardsWithImageId = cardArray.filter((card) => card.imageId === imageId);
 
     // replace image for both cards with new image
-    cardsWithImageId.forEach((card) => (card.image = IconComponent));
+    cardsWithImageId.forEach((card) => (card.image = image));
   });
 
   return [...cardArray];

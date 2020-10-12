@@ -1,13 +1,19 @@
-import styled from 'styled-components/macro';
+import styled, { keyframes } from 'styled-components/macro';
+import { css } from 'styled-components';
+
+const FadeIn = keyframes`
+  from { opacity: 0; }
+  to   { opacity: 1; }
+`;
 
 export const FLipCardWrapper = styled.div`
   cursor: pointer;
   position: relative;
   height: 25vh;
-  width: 25vh;
+  width: 22vh;
   @media only screen and (max-width: 600px) {
     height: 12vh;
-    width: 12vh;
+    width: 11vh;
   }
 `;
 
@@ -39,4 +45,9 @@ export const FlipCardFront = styled(FlipCardBack)`
   justify-content: center;
   align-items: center;
   font-size: 5rem;
+  animation: ${(props) =>
+    props.flip &&
+    css`
+      ${FadeIn} forwards 600ms
+    `};
 `;

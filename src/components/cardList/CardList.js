@@ -16,7 +16,7 @@ const CardList = () => {
           imageId={item.imageId}
           imageIndex={item.index}
           backSide={<CardBackSide />}
-          FrontSide={item.image}
+          frontSide={item.image}
         />
       ))
     : null;
