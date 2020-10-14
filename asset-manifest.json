@@ -1,22 +1,36 @@
 {
   "files": {
     "main.css": "/memory-game/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/memory-game/static/js/main.e3ec29d9.chunk.js",
-    "main.js.map": "/memory-game/static/js/main.e3ec29d9.chunk.js.map",
+    "main.js": "/memory-game/static/js/main.5ec940ff.chunk.js",
+    "main.js.map": "/memory-game/static/js/main.5ec940ff.chunk.js.map",
     "runtime-main.js": "/memory-game/static/js/runtime-main.a1f811c6.js",
     "runtime-main.js.map": "/memory-game/static/js/runtime-main.a1f811c6.js.map",
-    "static/js/2.62aceeeb.chunk.js": "/memory-game/static/js/2.62aceeeb.chunk.js",
-    "static/js/2.62aceeeb.chunk.js.map": "/memory-game/static/js/2.62aceeeb.chunk.js.map",
+    "static/js/2.1990aa12.chunk.js": "/memory-game/static/js/2.1990aa12.chunk.js",
+    "static/js/2.1990aa12.chunk.js.map": "/memory-game/static/js/2.1990aa12.chunk.js.map",
     "index.html": "/memory-game/index.html",
-    "precache-manifest.a9cf34bcd2faa05a49cdc923f74a350e.js": "/memory-game/precache-manifest.a9cf34bcd2faa05a49cdc923f74a350e.js",
+    "precache-manifest.80a62af0dcb900ecb3d795bccd0e8565.js": "/memory-game/precache-manifest.80a62af0dcb900ecb3d795bccd0e8565.js",
     "service-worker.js": "/memory-game/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/memory-game/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.62aceeeb.chunk.js.LICENSE.txt": "/memory-game/static/js/2.62aceeeb.chunk.js.LICENSE.txt"
+    "static/js/2.1990aa12.chunk.js.LICENSE.txt": "/memory-game/static/js/2.1990aa12.chunk.js.LICENSE.txt",
+    "static/media/antMan.jpg": "/memory-game/static/media/antMan.28935ce8.jpg",
+    "static/media/bane.jpg": "/memory-game/static/media/bane.26f7b291.jpg",
+    "static/media/batman1.jpg": "/memory-game/static/media/batman1.f5d991f0.jpg",
+    "static/media/batman2.jpg": "/memory-game/static/media/batman2.003b9fbd.jpg",
+    "static/media/batwoman.jpg": "/memory-game/static/media/batwoman.ddbd8713.jpg",
+    "static/media/catwoman.jpg": "/memory-game/static/media/catwoman.e3f87877.jpg",
+    "static/media/flash2.jpg": "/memory-game/static/media/flash2.5c44b00f.jpg",
+    "static/media/green2.jpg": "/memory-game/static/media/green2.a3608d11.jpg",
+    "static/media/haddock_2.jpg": "/memory-game/static/media/haddock_2.85cfb33b.jpg",
+    "static/media/hulk.png": "/memory-game/static/media/hulk.bb598722.png",
+    "static/media/joker.jpg": "/memory-game/static/media/joker.5f917221.jpg",
+    "static/media/penguin.jpg": "/memory-game/static/media/penguin.4ddb4d43.jpg",
+    "static/media/spiderman.jpg": "/memory-game/static/media/spiderman.c7732b56.jpg",
+    "static/media/thor.jpg": "/memory-game/static/media/thor.039622c3.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.a1f811c6.js",
-    "static/js/2.62aceeeb.chunk.js",
+    "static/js/2.1990aa12.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.e3ec29d9.chunk.js"
+    "static/js/main.5ec940ff.chunk.js"
   ]
 }
