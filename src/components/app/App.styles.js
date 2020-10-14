@@ -7,4 +7,6 @@ export const AppWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
 `;

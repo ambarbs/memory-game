@@ -26,7 +26,7 @@ export const SelectButtonWrapper = styled.div`
 export const SelectButtonWrapperForImage = styled.div`
   transition: 0.4s;
   border-radius: 6px;
-  border: ${(props) => (props.active ? '1px solid #fff' : '1px solid #007aff')};
+  border: ${(props) => (props.active ? '1px solid #fff' : '2px solid #007aff')};
   height: 3.5rem;
   width: 6rem;
   cursor: pointer;

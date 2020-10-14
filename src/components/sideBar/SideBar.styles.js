@@ -9,14 +9,14 @@ export const SideBarWrapper = styled.div`
   left: 0;
   z-index: 1;
   opacity: 0.75;
-  transition: width 1s ease-out, opaicty 2s ease-out;
+  transition: width 500ms ease-out, opaicty 500ms ease-out;
 `;
 
 export const SideBarInnerWrapper = styled.div`
   position: relative;
   overflow: hidden;
   opacity: ${(props) => (props.open ? 1 : 0)};
-  transition: opacity 800ms ease-in;
+  transition: opacity 400ms ease-in;
   display: flex;
   flex-direction: column;
   justify-content: center;

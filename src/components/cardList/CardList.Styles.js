@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components/macro';
 export const ImageCardWrapper = styled.img`
   width: 100%;
   height: 100%;
+  border-radius: inherit;
 `;
 
 const GradientAnimation = keyframes`
