@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled, { keyframes }  from 'styled-components/macro';
 
 export const Grid = styled.div`
   display: grid;
@@ -11,21 +11,22 @@ export const Grid = styled.div`
   }
 `;
 
-export const Button = styled.div`
+export const ButtonWrapper = styled.div`
   border-radius: 4px;
-  background-color: #d35400;
+  background-color: #7e42f5;
   border: none;
   padding: 20px;
   width: 200px;
   transition: all 0.5s;
-  margin-top: 100px;
+  margin-top: ${(props) => props.marginTop};
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   font-size: large;
   font-weight: bold;
   color: white;
+  opacity: ${(props) => (props.disabled ? 0.25 : 1)};
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 `;
 
 export const Flex = styled.div`
@@ -34,4 +35,16 @@ export const Flex = styled.div`
   justify-content: center;
   align-items: center;
   width: ${(props) => props.width};
+`;
+
+export const GradientAnimation = keyframes`
+  0% {
+background-position: 0 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0% 50%;
+}
 `;

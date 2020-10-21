@@ -12,11 +12,11 @@ export const closeImage = (imageId) => {
   };
 };
 
-export const resetGame = ({ row, col, gameDifficulty, iconStyle }) => {
+export const resetGame = ({ row, col, gameDifficulty, iconStyle, settingStep }) => {
   return async (dispatch) => {
     return await dispatch({
       type: actionType.RESET_STATE,
-      payload: { row, col, gameDifficulty, iconStyle },
+      payload: { row, col, gameDifficulty, iconStyle, settingStep },
     });
   };
 };
@@ -50,5 +50,11 @@ export const setMatrixDimension = (matrixDimension) => {
 export const setGameMatrix = (gameMatrix) => {
   return async (dispatch) => {
     return await dispatch({ type: actionType.SET_GAME_MATRIX, payload: gameMatrix });
+  };
+};
+
+export const setSettingStep = (settingStep) => {
+  return async (dispatch) => {
+    return await dispatch({ type: actionType.SETTING_STEP, payload: settingStep });
   };
 };

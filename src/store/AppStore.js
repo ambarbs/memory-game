@@ -11,9 +11,10 @@ export const INITIAL_STATE = {
   closeImageWithIndex: null,
   gameOver: false,
   gameKey: 1,
-  gameDifficulty: 1,
+  gameDifficulty: 0,
   iconStyle: 0,
   matrixDimension: { row: 2, col: 5 },
+  settingStep: -1,
 };
 
 export const gameReducer = (state = INITIAL_STATE, action) => {
@@ -26,6 +27,7 @@ export const gameReducer = (state = INITIAL_STATE, action) => {
     SET_GAME_DIFFICULTY,
     SET_ICON_STYLE,
     SET_MATRIX_DIMENSION,
+    SETTING_STEP,
   } = actionType;
 
   switch (action.type) {
@@ -73,6 +75,12 @@ export const gameReducer = (state = INITIAL_STATE, action) => {
         matrixDimension: action.payload,
       };
       break;
+    case SETTING_STEP:
+      state = {
+        ...state,
+        settingStep: action.payload,
+      };
+      break;
     case RESET_STATE:
       state = {
         ...INITIAL_STATE,
@@ -80,12 +88,16 @@ export const gameReducer = (state = INITIAL_STATE, action) => {
         gameMatrix: getInitialLayout(
           action.payload.row,
           action.payload.col,
-          action.payload.iconStyle || INITIAL_STATE.iconStyle
+          action.payload.iconStyle || state.iconStyle || INITIAL_STATE.iconStyle
         ),
-        matrixDimension: { row: action.payload.row, col: action.payload.col },
+        matrixDimension: {
+          row: action.payload.row || INITIAL_STATE.matrixDimension.row,
+          col: action.payload.col || INITIAL_STATE.matrixDimension.col,
+        },
         gameDifficulty: action.payload.gameDifficulty,
-        iconStyle: action.payload.iconStyle || INITIAL_STATE.iconStyle,
+        iconStyle: action.payload.iconStyle || state.iconStyle,
         openedCards: [],
+        settingStep: action.payload.settingStep || state.settingStep,
       };
       break;
   }

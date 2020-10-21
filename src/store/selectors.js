@@ -13,3 +13,5 @@ export const getGameDifficulty = (state) => state.gameReducer.gameDifficulty;
 export const getIconStyle = (state) => state.gameReducer.iconStyle;
 
 export const getMatrixDimension = (state) => state.gameReducer.matrixDimension;
+
+export const getSettingStep = (state) => state.gameReducer.settingStep;

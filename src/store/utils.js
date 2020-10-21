@@ -35,25 +35,23 @@ export const getInitialLayout = (row = 2, col = 5, iconStyle = 0) => {
 
 /**
  *
- * @param cardArray
- * @param row
- * @param col
+ * @param gameMatrix
  * @param iconStyle
  * @returns {*[]}
  */
-export const replaceImagesInLayout = (cardArray, row = 2, col = 5, iconStyle = 0) => {
+export const replaceImagesInLayout = ({ gameMatrix, iconStyle = 0 }) => {
   // get unique imageIds
-  const imageIds = Array.from(new Set(cardArray.map((card) => card.imageId)));
+  const imageIds = Array.from(new Set(gameMatrix.map((card) => card.imageId)));
   const icons = images[iconStyle];
 
   // filter out and change both items' images with new image
   imageIds.forEach((imageId, imageCounter) => {
     const image = icons[imageCounter];
-    const cardsWithImageId = cardArray.filter((card) => card.imageId === imageId);
+    const cardsWithImageId = gameMatrix.filter((card) => card.imageId === imageId);
 
     // replace image for both cards with new image
     cardsWithImageId.forEach((card) => (card.image = image));
   });
 
-  return [...cardArray];
+  return [...gameMatrix];
 };

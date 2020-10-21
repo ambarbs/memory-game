@@ -27,6 +27,7 @@ const SelectButtonGroup = ({
   height,
   width,
   type,
+  fontSize,
 }) => {
   const WrapperComponentButtonGroup = wrapperMapSelectButtonGroup[wrapperType];
   const WrapperComponentSelectButton = wrapperMapSelectButton[type];
@@ -41,6 +42,7 @@ const SelectButtonGroup = ({
             active={selectedIndex === index}
             height={height}
             width={width}
+            fontSize={fontSize}
           >
             {label}
           </WrapperComponentSelectButton>
@@ -63,4 +65,5 @@ SelectButtonGroup.propTypes = {
   height: PropTypes.string,
   wrapperType: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  fontSize: PropTypes.string,
 };

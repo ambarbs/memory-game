@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components/macro';
+import styled from 'styled-components/macro';
+import { GradientAnimation } from '../common/Common.Styles';
 
 export const ImageCardWrapper = styled.img`
   width: 100%;
@@ -6,17 +7,6 @@ export const ImageCardWrapper = styled.img`
   border-radius: inherit;
 `;
 
-const GradientAnimation = keyframes`
-  0% {
-background-position: 0% 50%;
-}
-50% {
-background-position: 100% 50%;
-}
-100% {
-background-position: 0% 50%;
-}
-`;
 export const CardBackSide = styled.div`
   width: 100%;
   height: 100%;
@@ -24,7 +14,7 @@ export const CardBackSide = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(-45deg, #ee2943, #e7da65, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #ee2943, #e5e71a, #17d57f, #3514d5, #3514a5);
   background-size: 400% 400%;
-  animation: ${GradientAnimation} 5s ease infinite;
+  animation: ${GradientAnimation} 4s ease infinite;
 `;

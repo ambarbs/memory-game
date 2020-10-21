@@ -45,7 +45,7 @@ import spiderman from '../../images/avengers/spiderman.jpg';
 import thor from '../../images/avengers/thor.jpg';
 
 export const images = {
-  3: [
+  2: [
     tintin,
     tintin2,
     jolyon,
@@ -67,7 +67,7 @@ export const images = {
     supergirl,
     wonder,
   ].map((image, index) => <ImageCardWrapper key={index} src={image} />),
-  2: [
+  3: [
     batman1,
     batman2,
     batwoman,

@@ -1,15 +1,15 @@
 import React from 'react';
 import { AppWrapper } from './App.styles';
-import CardList from '../cardList/CardList';
-import GameOver from '../gameOver/GameOver';
-import { SideBar } from '../sideBar/SideBar';
+import { getSettingStep } from '../../store/selectors';
+import { useSelector } from 'react-redux';
+import Game from '../game/Game';
 
 const App = () => {
+  const settingStep = useSelector(getSettingStep);
+
   return (
     <AppWrapper>
-      <SideBar />
-      <CardList />
-      <GameOver />
+      <Game settingStep={settingStep} />
     </AppWrapper>
   );
 };

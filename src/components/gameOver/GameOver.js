@@ -1,6 +1,5 @@
 import React from 'react';
 import Toast from '../toast/Toast';
-import { Button } from '../common/Common.Styles';
 import { resetGame } from '../../store/thunks';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -9,6 +8,7 @@ import {
   getIconStyle,
   getMatrixDimension,
 } from '../../store/selectors';
+import { Button } from '../common';
 
 const GameOver = () => {
   const gameOver = useSelector(getGameOver);
@@ -32,9 +32,9 @@ const GameOver = () => {
                 })
               );
             }}
-          >
-            Restart
-          </Button>
+            label="Restart"
+            marginTop="5rem"
+          />
         </>
       )}
     </>
