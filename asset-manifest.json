@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/memory-game/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/memory-game/static/js/main.df1a2418.chunk.js",
-    "main.js.map": "/memory-game/static/js/main.df1a2418.chunk.js.map",
+    "main.js": "/memory-game/static/js/main.41907da7.chunk.js",
+    "main.js.map": "/memory-game/static/js/main.41907da7.chunk.js.map",
     "runtime-main.js": "/memory-game/static/js/runtime-main.a1f811c6.js",
     "runtime-main.js.map": "/memory-game/static/js/runtime-main.a1f811c6.js.map",
-    "static/js/2.9fe23a94.chunk.js": "/memory-game/static/js/2.9fe23a94.chunk.js",
-    "static/js/2.9fe23a94.chunk.js.map": "/memory-game/static/js/2.9fe23a94.chunk.js.map",
+    "static/js/2.84320780.chunk.js": "/memory-game/static/js/2.84320780.chunk.js",
+    "static/js/2.84320780.chunk.js.map": "/memory-game/static/js/2.84320780.chunk.js.map",
     "index.html": "/memory-game/index.html",
-    "precache-manifest.e7d114859a5b0077f603374f08de2318.js": "/memory-game/precache-manifest.e7d114859a5b0077f603374f08de2318.js",
+    "precache-manifest.fbbfc016560cef4c48d724eac913023c.js": "/memory-game/precache-manifest.fbbfc016560cef4c48d724eac913023c.js",
     "service-worker.js": "/memory-game/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/memory-game/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.9fe23a94.chunk.js.LICENSE.txt": "/memory-game/static/js/2.9fe23a94.chunk.js.LICENSE.txt",
+    "static/js/2.84320780.chunk.js.LICENSE.txt": "/memory-game/static/js/2.84320780.chunk.js.LICENSE.txt",
     "static/media/antMan.jpg": "/memory-game/static/media/antMan.28935ce8.jpg",
     "static/media/bane.jpg": "/memory-game/static/media/bane.26f7b291.jpg",
     "static/media/batman1.jpg": "/memory-game/static/media/batman1.f5d991f0.jpg",
@@ -30,8 +30,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.a1f811c6.js",
-    "static/js/2.9fe23a94.chunk.js",
+    "static/js/2.84320780.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.df1a2418.chunk.js"
+    "static/js/main.41907da7.chunk.js"
   ]
 }
